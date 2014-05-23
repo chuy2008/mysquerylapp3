@@ -2,15 +2,21 @@
 
 # --- !Ups
 
-create sequence s_bar_id;
+use `bardemo`;
 
-create table bar (
-  id    bigint DEFAULT nextval('s_bar_id'),
-  name  varchar(128)
-);
+
+# -- DROP TABLE if exists bar;
+
+CREATE TABLE `bardemo`.`bar` (
+#  ---  `id`    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `id`   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `name` VARCHAR(128) NOT NULL);
+# ---  `id`    INT,
+# ---  `name`  VARCHAR(128) NOT NULL)
+# ----   PRIMARY KEY (`id`))
+
 
 
 # --- !Downs
 
-drop table bar;
-drop sequence s_bar_id;
+

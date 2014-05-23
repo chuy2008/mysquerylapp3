@@ -37,7 +37,8 @@ object Application extends Controller {
   def getBars = Action {
     val json = inTransaction 
     {
-      val bars = from(AppDB.barTable)(barTable => select(barTable))      
+      val bars = from(AppDB.barTable)(barTable => select(barTable))
+      println("Application.scala routine point 1 results = " + bars.toSeq)
       implicit object barFormat extends Format[Bar] 
       {
           def reads(json: JsValue) = JsSuccess(Bar((json \ "name").as[Option[String]]))
